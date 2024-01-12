@@ -18,6 +18,7 @@ main {
 }
 
 .card {
+    position: relative;
     width: 500px;
     height: 500px;
     margin-top: 50px;
@@ -107,13 +108,11 @@ main {
 
 
 
-form {
+.buttons {
     display: flex;
     justify-content: center;
 }
-form button {
-    margin: 10px;
-}
+
 
 .front-rank-p {
     position: absolute;
@@ -137,7 +136,10 @@ form button {
 }
 
 .rating-back {
-    font-weight: 400;
+    font-weight: bold;
+    color: rgba(240, 255, 0);
+    font-size: 1.3rem;
+
 }
 
 .descrip-back {
@@ -147,6 +149,8 @@ form button {
 }
 
 .update {
+    margin: 20px;
+    text-decoration: none;
     border-radius: 10px;
     background-color: blue;
     padding: 20px;
@@ -163,23 +167,78 @@ form button {
 
 .update:hover {
     cursor:pointer;
-
     opacity: 0.8;
 }
+
 .delete {
+
+    text-decoration: none;
     border-radius: 10px;
     background-color: red;
-     padding: 20px;
-     color:white;
+    padding: 20px;
+    color:white;
     display: flex;
     height: 50px;
     border: none;
-    align-items: center;
     align-self:center;
+    align-items: center;
+
 }
 
 .delete:hover {
     cursor:pointer;
 
     opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+.cont-form {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+form label {
+    font-size: 1.5rem;
+    color: white;
+}
+form input[type=text] {
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+form input:focus {
+    background: black;
+    transition: 3s all ease;
+}
+
+form input[type=submit]{
+    margin-top: 40px;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form input[type=submit]:hover{
+    background: $secondary_color;
+    cursor: pointer;
+    transition: 3s all ease;
 }

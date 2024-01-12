@@ -14,10 +14,13 @@
 <body>
 
     <div class="cont-form">
-        <form action="" method="POST">
+        <form action="" method="POST" novalidate>
             {{ form.csrf_token }}
+            {{form.movie_rating.label}}
             {{form.movie_rating}}
+            {{form.movie_review.label}}
             {{form.movie_review}}
+            {{form.submit_but}}
         </form>
     </div>
 

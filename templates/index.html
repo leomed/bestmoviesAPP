@@ -36,16 +36,16 @@
                                 <div class="info">
                                     <h1 class="title-back">{{movie.title}}</h1>
                                     <h2 class="year-back">{{movie.year}}</h2>
-                                    <p class="ratin-back">{{movie.rating }} Stars</p>
+                                    <p class="rating-back">{{movie.rating }} ⭐</p>
                                     <p class="review-back">{{movie.review}}</p>
                                     <p class="descrip-back">{{movie.description}}</p>
 
                                 </div>
-                                <div class="form">
-                                     <form action="" method="POST">
-                                            <a href="{{url_for('update')}}" class="update">Update</a>
-                                         <button class="delete">Delete</button>
-                                     </form>
+                                <div class="buttons">
+
+                                            <a href="{{url_for('update', id=movie.id)}}" class="update">Update</a>
+                                            <a href="#" class="delete">Delete</a>
+
                                 </div>
 
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField
 from wtforms.validators import DataRequired
@@ -58,16 +58,23 @@ def index():
 
 
 
-@app.route("/update", methods=["GET","POST"])
-def update():
+@app.route("/update/<id>", methods=["GET","POST"])
+def update(id):
     class MyForm(FlaskForm):
-        movie_rating = StringField("Edit rating",validators=[DataRequired()])
-        movie_review = StringField("Edit review",validators=[DataRequired()])
+        movie_rating = StringField("Your rating",validators=[DataRequired()])
+        movie_review = StringField("Your review",validators=[DataRequired()])
+        submit_but = SubmitField("Update", validators=[DataRequired()])
 
     form = MyForm()
-    if form.validate_on_submit():
-        pass
 
+
+    if form.validate_on_submit():
+        movie_to_update = db.session.execute(db.select(Movies).where(Movies.id == id)).scalar()
+        movie_to_update.rating = form["movie_rating"].data
+        movie_to_update.review = form["movie_review"].data
+        db.session.commit()
+
+        return redirect(url_for('index'))
     return render_template("update.html", form=form)
 
 

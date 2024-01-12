@@ -54,5 +54,32 @@ def index():
     return render_template("index.html", all_movies=all_movies)
 
 
+
+
+
+
+@app.route("/update", methods=["GET","POST"])
+def update():
+    class MyForm(FlaskForm):
+        movie_rating = StringField("Edit rating",validators=[DataRequired()])
+        movie_review = StringField("Edit review",validators=[DataRequired()])
+
+    form = MyForm()
+    if form.validate_on_submit():
+        pass
+
+    return render_template("update.html", form=form)
+
+
+
+
+
+
+
+
+
+app.secret_key = "123"
+
+
 if __name__ == "__main__":
     app.run(debug=True)

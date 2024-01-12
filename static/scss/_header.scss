@@ -1,0 +1,8 @@
+header {
+    background-color: $primary_color;
+    grid-column-start: header;
+    grid-column-end: header;
+    grid-row-start: header;
+
+    height: 40px;
+}

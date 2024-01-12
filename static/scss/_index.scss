@@ -1,0 +1,24 @@
+* {
+    font-family: 'Kanit';
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+
+
+
+
+}
+body {
+background: $third_color;
+}
+
+.grid-cont {
+    display:grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3;
+    grid-template-areas: "header header header"
+                         "main   main   main"
+                         "footer footer footer";
+}
+

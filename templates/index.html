@@ -25,8 +25,8 @@
     <main>
         <div class="main">
             {%for movie in all_movies%}
-                        <div class="card">
 
+            <div class="card">
                             <div class="front">
                                 <p class="front-rank-p">{{movie.ranking}}</p>
                                 <img class="img" src="{{movie.img_url}}" alt="">
@@ -44,7 +44,7 @@
                                 <div class="buttons">
 
                                             <a href="{{url_for('update', id=movie.id)}}" class="update">Update</a>
-                                            <a href="#" class="delete">Delete</a>
+                                            <a href="{{url_for('delete', id=movie.id)}}" class="delete">Delete</a>
 
                                 </div>
 
@@ -54,7 +54,7 @@
                         </div>
              {%endfor%}
 
-
+        <a class="add_url" href="{{url_for('add')}}">Add Movie</a>
 
         </div>
     </main>

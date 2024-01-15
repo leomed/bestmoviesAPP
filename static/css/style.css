@@ -37,9 +37,11 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .card {
+  position: relative;
   width: 500px;
   height: 500px;
   margin-top: 50px;
@@ -211,7 +213,7 @@ form input[type=text] {
 }
 
 form input:focus {
-  background: black;
+  background: rgba(60, 0, 0, 0.5);
   transition: 3s all ease;
 }
 
@@ -226,6 +228,25 @@ form input[type=submit]:hover {
   background: #FB9F89;
   cursor: pointer;
   transition: 3s all ease;
+}
+
+.add_url {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.add_url:hover {
+  transition: 3s;
+  color: black;
+}
+
+.cont_form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 footer {

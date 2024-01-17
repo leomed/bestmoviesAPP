@@ -29,6 +29,8 @@ setx API_MOVIE_KEY 'value'
 
 
 
+
+"""This is the model of the database"""
 class Movies(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(15), unique=True , nullable=False)
@@ -48,22 +50,43 @@ with app.app_context():
 
 
 
-
-
-
-
 @app.route("/", methods=["GET","POST"])
 def index():
     """This function displayed all the movies from the database, sorted by it's rating,but then
     The loop for display the movies on a ranking depending its rating"""
-    all_movies = db.session.execute(db.select(Movies).order_by(Movies.rating)).scalars().all()
+    result = db.session.execute(db.select(Movies).order_by(Movies.rating))
 
+    all_movies = result.scalars().all()
+
+
+    # rank = 1
+    #
+    # for i in all_movies:
+    #     i.ranking = rank
+    #     rank+=1
 
     for i in range(len(all_movies)):
-        all_movies[i].ranking = len(all_movies) - 1
-        db.session.commit()
+        all_movies[i].ranking = len(all_movies) - i
+    db.session.commit()
+
+    db.session.commit()
+
 
     return render_template("index.html", all_movies=all_movies)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route("/find")
@@ -147,16 +170,32 @@ def update():
 
 
 
+
+
+
+
+
+
+
+
+
 @app.route("/delete")
 def delete():
-    """This function deletes a movie,the id is passed in <a> in the index.html,
-    once that is done it redirects to indexin order to update the page
-    """
+        """This function deletes a movie,the id is passed in <a> in the index.html,
+        once that is done it redirects to indexin order to update the page
+        """
         movie_id = request.args.get("id")
         movie = db.get_or_404(Movies, movie_id)
         db.session.delete(movie)
         db.session.commit()
         return redirect(url_for("index"))
+
+
+
+
+
+
+
 
 
 

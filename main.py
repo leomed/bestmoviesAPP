@@ -90,7 +90,7 @@ def index():
 
 
 @app.route("/find")
-def find():
+def select_results():
     """This functions gets the id from select.html, in the select.html the results from the api request
     are displayed. Then if everything it is okey, this functions redirects to update in order to modify
     the rating which the user gives and a brief description.
@@ -203,10 +203,10 @@ def delete():
 
 
 @app.route("/add", methods=["GET","POST"])
-def add():
+def display_results():
     """This functions adds display the results in index.html , so the user can select any of them, but
     the information of the movie  displays just the title and the date release.That's because movies
-    has a unique name
+    has a unique name. The results are not from our data base, are from the API OF MOVIES
 
     """
     class MyForm (FlaskForm):

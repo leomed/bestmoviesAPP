@@ -15,7 +15,7 @@
 <body>
     <ul>
         {%for n in result %}
-        <li><a href="{{url_for('update', id = n.id)}}">{{n["title"]}} - {{n["release_date"]}}</a></li>
+        <li><a href="{{url_for('find', id=n.id)}}">{{n["title"]}} - {{n["release_date"]}}</a></li>
 
         {%endfor%}
     </ul>
